@@ -21,7 +21,7 @@ $ eval "$(ssh-agent -s)"
 $ ssh-add ~/.ssh/id_rsa
 
 ---> Step 3: Add the SSH Key to your GitHub Account
-
+$ clip < ~/.ssh/id_rsa.pub
 Select “SSH and GPG keys” from the sidebar and 
 click on “New SSH key” option
 

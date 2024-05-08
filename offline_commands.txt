@@ -1,0 +1,230 @@
+
+========= BASIC COMANDS =========================================
+
+git --version
+
+git config --global user.name "Your Name"
+git config user.name
+
+git config --global user.email "your.email@example.com"
+git config user.email
+
+
+
+========= DIRECTORY COMANDS ====================================
+
+ls           list all content
+start .      open explorer 
+
+
+ls Videos    list in Videos
+cd ..        go back
+pwd          list path
+
+clear        clear bash
+
+
+touch a.txt b.txt         create files
+
+cd  /c/MARINO/OSIT/       quick positions
+
+mkdir TEST  TEST1    create dir
+ 
+rm a.txt b.txt aaa.pdf   remove all files
+
+rm -rf A    delete dir
+
+mv a.txt b.txt  rename file a with b
+
+
+
+========= GIT BASIC COMANDS ====================================
+
+git log
+git status
+git init        
+
+ls -a       show hidden git files
+
+git add someotherfile.txt file.txt
+
+git add .       adding all changed files
+
+
+You can undo a prior git add operation with either of these commands:
+
+$ git reset <file/path> # or $ git restore --staged <file/path>
+$ git add <file/path>
+$ git reset <file/path>
+$ git restore --staged <file/path>
+
+
+
+git commit -m "my first commit"
+git commit --amend               to fix last commit
+
+
+git log               full log output
+git log --oneline     pretty log output
+
+https://git-scm.com/docs  documentation
+
+git config --global core.editor "code --wait"  default editor for commit messages 
+
+To exit git log, type “q” or “z”
+
+touch .gitignore
+in this file put all files that need to be ignored
+
+
+=========  GIT BRANCHES COMANDS ==================================== 
+
+git branch         shows all branches
+git branch -v      detailed view
+
+git branch  "oldies"   create branch oldies
+
+git switch oldies  switch head to oldies branch
+git switch master
+
+git commit -a -m "resolved playlist file on oldies branch" add plus commit
+git commit -am "message" 
+
+
+git checkout oldies            the same as switch some old func
+
+git switch -c recent      creates recent branch and switches in one run
+
+git checkout -b somebranch   creates and switch
+
+
+========= GIT BRANCHES COMANDS: delete ================================
+
+$ git branch -d deleteme
+error: cannot delete branch 'deleteme' used by worktree at 'C:/MARINO/OSIT/GIT/TEST/FIRSTREPO'
+
+error: the branch 'deleteme' is not fully merged
+hint: If you are sure you want to delete it, run 'git branch -D deleteme'
+hint: Disable this message with "git config advice.forceDeleteBranch false"
+
+
+git branch -D deleteme   force delete
+
+
+
+========= GIT BRANCHES COMANDS: rename =========================================
+ (need to be in branch that will be renamed)
+
+git switch recent
+Switched to branch 'recent'
+
+user@DESKTOP-AEUBSH4 MINGW64 /c/MARINO/OSIT/GIT/TEST/FIRSTREPO (recent)
+$ git branch -m 2000s   Git will rename the current branch to "2000s".
+
+
+
+========= CHECK WHERE IS HEAD =============================================
+cat .git/HEAD 
+
+
+========= MERGING FAST FORWARD ===========================================
+
+user@DESKTOP-AEUBSH4 MINGW64 /c/MARINO/OSIT/GIT/TEST/FIRSTREPO (2000s)
+$ git switch master
+Switched to branch 'master'
+
+
+git merge oldies
+
+Updating 3cbae70..1fbfed4
+Fast-forward
+ chicken.txt  | 1 +
+ playlist.txt | 9 ++++++++-
+ 2 files changed, 9 insertions(+), 1 deletion(-)
+ create mode 100644 chicken.txt
+
+
+========= MERGE COMMIT : CONFLICTS ====================================
+
+$git merge 2000s
+Auto-merging playlist.txt
+CONFLICT (content): Merge conflict in playlist.txt
+Automatic merge failed; fix conflicts and then commit the result.
+
+$ git status
+On branch master
+All conflicts fixed but you are still merging.
+  (use "git commit" to conclude merge)
+
+Changes to be committed:
+        modified:   playlist.txt
+
+
+user@DESKTOP-AEUBSH4 MINGW64 /c/MARINO/OSIT/GIT/TEST/FIRSTREPO (master|MERGING)
+$ git add playlist.txt
+
+user@DESKTOP-AEUBSH4 MINGW64 /c/MARINO/OSIT/GIT/TEST/FIRSTREPO (master|MERGING)
+$ git commit -m "new resolve"
+[master 3e7052e] new resolve
+
+
+=========  GIT DIFF =============================================
+
+$git diff  staged vs unstages changes
+
+$git diff HEAD  changes since last head
+
+$git diff --staged
+$git diff --cashed
+
+$git diff --staged numbers.txt
+
+$git diff HEAD filename.txt
+
+$git diff branch1..branch2s both works
+$git diff branch1 branch2s  aslo this
+
+you can allways use filter filename
+
+$ git log --oneline
+3e7052e (HEAD -> master) new resolve
+14975d8 (2000s) new croatian songs
+f6d347c merge resolved
+7755f32 motorhead added
+1fbfed4 (oldies) chicken added
+f7e70fb (chick) add 2 morrison songs
+27b3ff3 resolved playlist file on oldies branch
+fc117d5 comit in ne branche
+3cbae70 (somebranch) playlists
+f06e8af this is ignore file
+0ab8cb4 THIS IS A VS CODE MESSAGE plus amend
+fe64c9d photos only
+35bb5d0 text changes only
+250d444 chapter 2 created
+cc2a699 final commit
+0ccf3a4 another comit
+2c16ad5 my first commit
+
+user@DESKTOP-AEUBSH4 MINGW64 /c/MARINO/OSIT/GIT/TEST/FIRSTREPO (master)
+$ git diff 1fbfed4..3e7052e
+
+
+========= GIT STASH ======================================================
+
+$git stash   like precommit save
+$git stash pop
+
+$git stash apply investigate this command
+
+$git stash list
+$git stash apply stash@{2} to recover some stash
+
+$git stash drop stash@{2} to remove some stash
+$git stash clear  to remove all stashes
+
+========= GIT CHECKOUT ==================================================
+
+$git checkout ######## hash code to back to some commit in history
+detached HEAD state
+
+$git switch master

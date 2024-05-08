@@ -1,0 +1,33 @@
+
+
+=========HOW TO USE SSH ON WINDOWS======= 
+to avoid prompting passwords every time
+
+https://www.geeksforgeeks.org/using-github-with-ssh-secure-shell/
+
+Secure Shell (SSH) Protocol
+
+---> tep 0: Check for existing keys
+$ ls -al ~/.ssh
+
+---> Step 1: Generate SSH Key on Local System
+$ ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+
+---> Verify creation of SSH Key
+$ ls -al ~/.ssh
+
+---> Step 2: Add SSH Key to SSH Agent
+$ eval "$(ssh-agent -s)"
+$ ssh-add ~/.ssh/id_rsa
+
+---> Step 3: Add the SSH Key to your GitHub Account
+
+Select “SSH and GPG keys” from the sidebar and 
+click on “New SSH key” option
+
+---> Step 4: Test the SSH Connection
+ $ ssh -T git@github.com 
+
+Connection is established if you are prompted with the following message:
+Hi {username}! You’ve successfully authenticated, 
+but GitHub does not provide shell access.

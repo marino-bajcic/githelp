@@ -7,7 +7,7 @@ https://www.geeksforgeeks.org/using-github-with-ssh-secure-shell/
 
 Secure Shell (SSH) Protocol
 
----> tep 0: Check for existing keys
+---> Step 0: Check for existing keys
 $ ls -al ~/.ssh
 
 ---> Step 1: Generate SSH Key on Local System

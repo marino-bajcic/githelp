@@ -1,0 +1,36 @@
+Adding a folder to GitHub using Git Bash involves a series of steps:
+
+Initialize Git in your folder: If you haven't already initialized Git in your local folder, you need to do so. Open Git Bash, navigate to your folder using the cd command, and then run:
+
+bash
+git init
+Add your files: Add the files you want to include in the folder using the following command:
+
+bash
+git add .
+This command adds all the files in the current directory to the staging area.
+
+Commit your changes: Commit the changes to your local repository with a meaningful message:
+
+bash
+git commit -m "Initial commit"
+Create a new repository on GitHub: Go to GitHub and create a new repository. Make sure not to initialize it with a README, since you already have files to upload.
+
+Add the remote repository URL: Copy the URL of your GitHub repository. Then, in Git Bash, add the remote repository URL using the following command:
+
+bash
+git remote add origin <repository_URL>
+Replace <repository_URL> with the URL you copied from GitHub.
+
+Push your changes to GitHub: Finally, push your local commits to the remote repository on GitHub:
+
+bash
+git push -u origin master
+This command pushes the changes in your local repository to the remote repository on GitHub.
+
+After following these steps, your folder and its contents should be added to GitHub successfully. Remember to replace placeholders like <repository_URL> with the actual values.
+
+
+
+
+
